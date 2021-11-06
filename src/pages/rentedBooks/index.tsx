@@ -1,26 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./styles";
-
-const mock = [
-  {
-    title: "Titulo1",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursu",
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { ApplicationState } from "~/store";
+import { removeRentBook, loadingRequest } from "~/store/dashboard/actions";
+import { Loading, Title } from "~/components";
+import { MOCK_DATA } from "~/store/dashboard/types";
+import { DEFAULT_ITEM, timeout } from "~/utils";
 
 const RentedBooks: React.FC = () => {
+  const dispatch = useDispatch();
+  const [select, setSelect] = useState<MOCK_DATA>(DEFAULT_ITEM);
+  const [list, setList] = useState<MOCK_DATA[]>([]);
+  const { loading, rentedBooks, search } = useSelector(
+    ({ dashboard }: ApplicationState) => dashboard
+  );
+
+  useEffect(() => {
+    const searchFilter = rentedBooks.filter(
+      (item) => item.title.toLowerCase().indexOf(search) > -1
+    );
+    setList(searchFilter);
+  }, [search]);
+
+  useEffect(() => {
+    setList(rentedBooks);
+  }, [rentedBooks]);
+
   return (
     <S.Wrapper>
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-        <S.Card
-          key={item}
-          title={mock[0].title}
-          description={mock[0].description}
-        >
-          <S.Button onClick={() => {}}>Give back</S.Button>
-        </S.Card>
-      ))}
+      {rentedBooks.length > 0 ? (
+        list.map((item) => (
+          <S.Card
+            key={item.id}
+            title={item.title}
+            description={item.description}
+          >
+            <S.Button
+              onClick={() => {
+                setSelect(item);
+                dispatch(loadingRequest());
+                timeout(() => {
+                  dispatch(removeRentBook({ ...item, status: "avaliable" }));
+                });
+              }}
+            >
+              {loading && select.id === item.id ? <Loading /> : "Give back"}
+            </S.Button>
+          </S.Card>
+        ))
+      ) : (
+        <Title>You don´t have books to show</Title>
+      )}
     </S.Wrapper>
   );
 };

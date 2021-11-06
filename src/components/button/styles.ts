@@ -13,4 +13,9 @@ export const Button = styled.button<T.ButtonProps>`
   border-radius: 12px;
   cursor: pointer;
   font: var(--title);
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 `;

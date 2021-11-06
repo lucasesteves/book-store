@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Title as TitleComp } from "~/components";
+import { Title as TitleComp, Input as InputComp } from "~/components";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -7,11 +7,12 @@ export const Wrapper = styled.div`
 
   @media (max-width: 600px) {
     display: initial;
+    height: calc(100vh - 60px);
   }
 `;
 
 export const Header = styled.div`
-  height: 60px;
+  height: ${({ theme }) => theme.header.height}px;
   background: ${({ theme }) => theme.colors.primary};
   display: none;
 
@@ -49,7 +50,7 @@ export const DrawerContainer = styled.div`
 export const MobileDrawer = styled.div<{ open: boolean }>`
   height: 100%;
   width: ${({ open }) => (open ? "100%" : "0")};
-  background: ${({ theme }) => theme.colors.darkOpacity};
+  /* background: ${({ theme }) => theme.colors.darkOpacity}; */
   position: fixed;
   z-index: 300;
   top: 0;
@@ -65,4 +66,8 @@ export const MobileDrawer = styled.div<{ open: boolean }>`
 
 export const Title = styled(TitleComp)`
   color: ${({ theme }) => theme.colors.white};
+`;
+
+export const Input = styled(InputComp)`
+  width: calc(100% - 64px);
 `;

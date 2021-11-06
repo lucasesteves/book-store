@@ -8,5 +8,8 @@ export default function theme() {
       text: "#212121",
       darkOpacity: "#111111e0",
     },
+    header: {
+      height: 60,
+    },
   };
 }

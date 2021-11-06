@@ -1,23 +1,27 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-// import { useSelector } from "react-redux";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { Login, Template, Edit, Detail, RentedBooks, Books } from "~/pages";
+import { Login, Template, Edit, RentedBooks, Books } from "~/pages";
+import { ApplicationState } from "~/store";
 
 const Routes: React.FC = () => {
-  // const { isAuth } = useSelector(
-  //   ({ authentication }: ApplicationState) => authentication
-  // );
+  const { name } = useSelector(({ login }: ApplicationState) => login);
 
   return (
     <Switch>
-      <Route path="/" exact component={Login} />
-      <Template>
-        <Route path="/books" component={Books} />
-        <Route path="/book" component={Detail} />
-        <Route path="/edit" component={Edit} />
-        <Route path="/rented-books" component={RentedBooks} />
-      </Template>
+      <Route path="/" exact>
+        {!name ? <Login /> : <Redirect to="/books" />}
+      </Route>
+      {name ? (
+        <Template>
+          <Route path="/books" component={Books} />
+          <Route path="/edit" component={Edit} />
+          <Route path="/rented-books" component={RentedBooks} />
+        </Template>
+      ) : (
+        <Redirect to="/" />
+      )}
       {/* <Route path="*" exact component={Login} /> */}
     </Switch>
   );

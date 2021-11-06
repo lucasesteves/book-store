@@ -11,9 +11,6 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 960px) {
-    /* background:#0B4470; */
-  }
 `;
 
 export const Card = styled.div`
@@ -45,6 +42,7 @@ export const Card = styled.div`
 `;
 
 export const Title = styled(TitleComp)`
+  font: var(--headline);
   margin-bottom: 32px;
 `;
 

@@ -25,7 +25,7 @@ export const CardTitle = styled.span`
 `;
 
 export const CardDescription = styled.span`
-  font: var(--title);
+  font: var(--title-light);
   color: ${({ theme }) => theme.colors.text};
   padding: 12px 0;
 `;

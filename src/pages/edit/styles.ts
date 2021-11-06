@@ -3,6 +3,7 @@ import {
   Card as CardComp,
   Button as ButtonComp,
   Input as InputComp,
+  Textarea as TextareaComp,
 } from "~/components";
 
 export const Wrapper = styled.div`
@@ -13,6 +14,10 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   height: 100vh;
   overflow: auto;
+
+  @media (max-width: 600px) {
+    height: ${({ theme }) => `calc(100vh - ${theme.header.height}px)`};
+  }
 `;
 
 export const Card = styled(CardComp)`
@@ -41,6 +46,10 @@ export const AddButton = styled.div`
 `;
 
 export const Input = styled(InputComp)`
+  margin-bottom: 14px;
+`;
+
+export const Textarea = styled(TextareaComp)`
   margin-bottom: 14px;
 `;
 

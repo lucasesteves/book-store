@@ -13,12 +13,12 @@ export const Wrapper = styled.div<T.ModalProps>`
   background-color: ${({ theme }) => theme.colors.darkOpacity};
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ size: "default" | "large" }>`
   background-color: ${({ theme }) => theme.colors.white};
   margin: auto;
   padding: 20px;
   border-radius: 14px;
-  width: 600px;
+  width: ${({ size }) => (size === "large" ? 700 : 600)}px;
   @media screen and (max-width: 600px) {
     width: calc(100vw - 80px);
   }

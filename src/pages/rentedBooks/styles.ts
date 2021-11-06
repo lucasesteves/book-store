@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   height: 100vh;
   overflow: auto;
+
+  @media (max-width: 600px) {
+    height: ${({ theme }) => `calc(100vh - ${theme.header.height}px)`};
+  }
 `;
 
 export const Card = styled(CardComp)`

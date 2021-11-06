@@ -11,7 +11,9 @@ export default createGlobalStyle`
 
     --headline2: normal normal 600 18px/22px var(--font-family);
     
-    --title: normal normal 600 14px/19px var(--font-family);
+    --title: normal normal 600 14px/18px var(--font-family);
+
+    --title-light: normal normal 300 14px/18px var(--font-family);
     
     --subtitle: normal normal 300 10px/14px var(--font-family);
     
