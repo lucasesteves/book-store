@@ -29,8 +29,11 @@ export const Menu = styled.div`
   flex-direction: column;
 `;
 
-export const MenuItem = styled.div<{ selected?: boolean }>`
+export const MenuItem = styled.button<{ selected?: boolean }>`
   font: var(--title);
+  outline: none;
+  border: none;
+  text-align: left;
   color: ${({ theme, selected }) =>
     selected ? theme.colors.primary : theme.colors.white};
   background: ${({ theme, selected }) =>

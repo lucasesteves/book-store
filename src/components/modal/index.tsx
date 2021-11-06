@@ -17,7 +17,7 @@ const Modal: React.FC<T.ModalProps> = ({
       <S.Content size={size}>
         <S.HeadContent hasTitle={!!title}>
           <S.Title>{title}</S.Title>
-          <S.Icon onClick={onClose}>
+          <S.Icon onClick={onClose} data-testid="button-close">
             <FontAwesomeIcon icon={faTimes} />
           </S.Icon>
         </S.HeadContent>

@@ -34,7 +34,7 @@ const Login: React.FC = () => {
             });
           }}
         >
-          {loading ? <Loading /> : "Entrar"}
+          {loading ? <Loading /> : "Enter"}
         </S.Button>
       </S.Card>
     </S.Wrapper>

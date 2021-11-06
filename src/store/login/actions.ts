@@ -1,9 +1,9 @@
 import { action } from "typesafe-actions";
-import { authTypes } from "./types";
+import { loginTypes } from "./types";
 
-export const loadingRequest = () => action(authTypes.LOADING_REQUEST);
+export const loadingRequest = () => action(loginTypes.LOADING_REQUEST);
 
 export const loginRequest = (name: string) =>
-  action(authTypes.AUTH_REQUEST, name);
+  action(loginTypes.AUTH_REQUEST, name);
 
-export const logoutRequest = () => action(authTypes.LOGOUT_REQUEST);
+export const logoutRequest = () => action(loginTypes.LOGOUT_REQUEST);

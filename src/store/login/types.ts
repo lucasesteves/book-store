@@ -1,4 +1,4 @@
-export enum authTypes {
+export enum loginTypes {
   LOADING_REQUEST = "@login/LOADING_REQUEST",
   AUTH_REQUEST = "@login/AUTH_REQUEST",
   LOGOUT_REQUEST = "@login/LOGOUT_REQUEST",

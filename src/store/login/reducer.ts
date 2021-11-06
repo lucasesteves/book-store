@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { authTypes, LoginState } from "./types";
+import { loginTypes, LoginState } from "./types";
 
 const INITIAL_STATE: LoginState = {
   name: "",
@@ -11,17 +11,17 @@ const reducer: Reducer<LoginState> = (
   { type, payload }
 ) => {
   switch (type) {
-    case authTypes.LOADING_REQUEST:
+    case loginTypes.LOADING_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case authTypes.AUTH_REQUEST:
+    case loginTypes.AUTH_REQUEST:
       return {
         loading: false,
         name: payload,
       };
-    case authTypes.LOGOUT_REQUEST:
+    case loginTypes.LOGOUT_REQUEST:
       return {
         loading: false,
         name: "",
