@@ -22,7 +22,6 @@ const Routes: React.FC = () => {
       ) : (
         <Redirect to="/" />
       )}
-      {/* <Route path="*" exact component={Login} /> */}
     </Switch>
   );
 };

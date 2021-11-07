@@ -80,6 +80,7 @@ const Books: React.FC = () => {
       )}
 
       <Modal
+        data-testid="modal-detail"
         open={modal}
         title={select.title}
         onClose={() => setModal(false)}

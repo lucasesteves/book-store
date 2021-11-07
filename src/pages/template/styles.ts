@@ -50,7 +50,6 @@ export const DrawerContainer = styled.div`
 export const MobileDrawer = styled.div<{ open: boolean }>`
   height: 100%;
   width: ${({ open }) => (open ? "100%" : "0")};
-  /* background: ${({ theme }) => theme.colors.darkOpacity}; */
   position: fixed;
   z-index: 300;
   top: 0;

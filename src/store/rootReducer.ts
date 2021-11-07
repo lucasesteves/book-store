@@ -8,7 +8,6 @@ type ActionsUnion =
   | typeof import("./dashboard/actions");
 declare type RootAction = ActionType<ActionsUnion>;
 declare module "typesafe-actions" {
-  // eslint-disable-next-line no-unused-vars
   interface Types {
     RootAction: RootAction;
   }

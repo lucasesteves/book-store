@@ -95,7 +95,10 @@ const Create: React.FC = () => {
         <Title>No books to show</Title>
       )}
 
-      <S.AddButton onClick={() => setModal({ ...modal, add: true })}>
+      <S.AddButton
+        data-testid="addBook"
+        onClick={() => setModal({ ...modal, add: true })}
+      >
         <FontAwesomeIcon icon={faPlus} />
       </S.AddButton>
 

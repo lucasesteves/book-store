@@ -36,6 +36,7 @@ const RentedBooks: React.FC = () => {
             description={item.description}
           >
             <S.Button
+              data-testid="button-back"
               onClick={() => {
                 setSelect(item);
                 dispatch(loadingRequest());

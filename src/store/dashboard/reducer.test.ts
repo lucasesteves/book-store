@@ -3,24 +3,9 @@ import reducer from "./reducer";
 import { dashboardTypes, DashboardState } from "./types";
 import mockBooks from "~/mocks/data.json";
 
-const sample = [
-  {
-    id: "8b44e51e-3e8b-11ec",
-    title: "New book",
-    description: "Lorem ipsum dolor sit amet",
-    status: "avaliable",
-  },
-  {
-    id: "Ub44e51e-3e8b-11pq",
-    title: "New book 2",
-    description: "Lorem ipsum dolor sit amet",
-    status: "avaliable",
-  },
-];
-
-const newSample = {
+const sample = {
   id: "9b44e51e-3e8b-11bb",
-  title: "New book 3",
+  title: "New book",
   description: "Lorem ipsum dolor sit amet",
   status: "avaliable",
 };
@@ -28,6 +13,14 @@ const newSample = {
 describe("Dashboard reducer", () => {
   const INITIAL_STATE: DashboardState = {
     books: [...mockBooks],
+    rentedBooks: [],
+    currentPage: "books",
+    search: "",
+    loading: false,
+  };
+
+  const INITIAL_STATE_EDIT: DashboardState = {
+    books: [sample],
     rentedBooks: [],
     currentPage: "books",
     search: "",
@@ -56,10 +49,25 @@ describe("Dashboard reducer", () => {
     expect(
       reducer(INITIAL_STATE, {
         type: dashboardTypes.ADD_BOOK_REQUEST,
-        payload: newSample,
+        payload: sample,
       })
     ).toEqual({
-      books: [...mockBooks, newSample],
+      books: [...mockBooks, sample],
+      rentedBooks: [],
+      currentPage: "books",
+      search: "",
+      loading: false,
+    });
+  });
+
+  it("should handle EDIT_BOOK_REQUEST", () => {
+    expect(
+      reducer(INITIAL_STATE_EDIT, {
+        type: dashboardTypes.EDIT_BOOK_REQUEST,
+        payload: sample,
+      })
+    ).toEqual({
+      books: [sample],
       rentedBooks: [],
       currentPage: "books",
       search: "",
@@ -86,11 +94,11 @@ describe("Dashboard reducer", () => {
     expect(
       reducer(INITIAL_STATE, {
         type: dashboardTypes.ADD_RENT_BOOK_REQUEST,
-        payload: newSample,
+        payload: sample,
       })
     ).toEqual({
       books: [...mockBooks],
-      rentedBooks: [newSample],
+      rentedBooks: [sample],
       currentPage: "books",
       search: "",
       loading: false,
