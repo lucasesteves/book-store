@@ -27,10 +27,16 @@ export const CardTitle = styled.span`
 export const CardDescription = styled.span`
   font: var(--title-light);
   color: ${({ theme }) => theme.colors.text};
-  padding: 12px 0;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const CardAction = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 12px;
 `;

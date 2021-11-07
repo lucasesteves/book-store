@@ -76,7 +76,7 @@ const Drawer: React.FC<T.DrawerProps> = ({
           }}
         >
           <S.FontAwesomeIcon icon={faSignOutAlt} />
-          Sair
+          Exit
         </S.MenuItem>
       </S.Exit>
     </S.Wrapper>

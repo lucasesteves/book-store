@@ -70,25 +70,31 @@ const Create: React.FC = () => {
             title={item.title}
             description={item.description}
           >
-            <S.Button
-              color="info"
-              onClick={() => {
-                setForm(item);
-                setModal({ ...modal, edit: true });
-              }}
-            >
-              Edit
-            </S.Button>
-            <S.Button
-              variant="outline"
-              color="error"
-              onClick={() => {
-                setForm(item);
-                setModal({ ...modal, remove: true });
-              }}
-            >
-              Delete
-            </S.Button>
+            {item.status === "avaliable" ? (
+              <>
+                <S.Button
+                  color="info"
+                  onClick={() => {
+                    setForm(item);
+                    setModal({ ...modal, edit: true });
+                  }}
+                >
+                  Edit
+                </S.Button>
+                <S.Button
+                  variant="outline"
+                  color="error"
+                  onClick={() => {
+                    setForm(item);
+                    setModal({ ...modal, remove: true });
+                  }}
+                >
+                  Delete
+                </S.Button>
+              </>
+            ) : (
+              <S.WarningMessage>This book can´t be edited</S.WarningMessage>
+            )}
           </S.Card>
         ))
       ) : (

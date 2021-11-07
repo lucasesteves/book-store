@@ -69,3 +69,12 @@ export const ErrorContent = styled.div`
     width: 260px;
   }
 `;
+
+export const WarningMessage = styled.div`
+  font: var(--title);
+  text-align: center;
+  color: ${({ theme }) => theme.colors.info};
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid ${({ theme }) => theme.colors.info};
+`;
